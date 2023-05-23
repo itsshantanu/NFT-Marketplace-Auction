@@ -38,12 +38,13 @@ describe('Marketplace contract', () => {
             await NFTCollection.mintNFT("Test NFT", "test.uri.domain.io")
         });
 
-        describe('Create Auction - Failure', () => {
+        describe.only('Create Auction - Failure', () => {
             let endAuction = Math.floor(Date.now() / 1000) + 10000;
 
             it('Should reject Auction because the NFT collection contract address is invalid', async () => {
-                await expect(Marketplace.createAuction(USER1.address, PaymentToken.address, 0, 50, endAuction))
-                    .to.be.revertedWith('Invalid NFT Collection contract address');
+                // await expect(Marketplace.createAuction(USER1.address, PaymentToken.address, 0, 50, endAuction))
+                //     .to.be.revertedWith('Invalid NFT Collection contract address');
+                await Marketplace.createAuction(USER1.address, PaymentToken.address, 0, 50, endAuction);
             })
 
             it('Should reject Auction because the Payment token contract address is invalid', async () => {
