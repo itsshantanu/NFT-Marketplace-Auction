@@ -38,7 +38,7 @@ describe('Marketplace contract', () => {
             await NFTCollection.mintNFT("Test NFT", "test.uri.domain.io")
         });
 
-        describe.only('Create Auction - Failure', () => {
+        describe('Create Auction - Failure', () => {
             let endAuction = Math.floor(Date.now() / 1000) + 10000;
 
             it('Should reject Auction because the NFT collection contract address is invalid', async () => {
